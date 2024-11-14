@@ -1,0 +1,3 @@
+browser "/Applications/Firefox.app"
+
+refresh-on-startup yes

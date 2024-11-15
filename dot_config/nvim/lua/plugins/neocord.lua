@@ -1,3 +1,9 @@
 return {
-	{ 'IogaMaster/neocord', event = "VeryLazy" } --Discord Rich Presence
+	{
+    'IogaMaster/neocord',
+    event = "VeryLazy",
+      config = function()
+      require("neocord").setup({})
+    end
+  }
 }

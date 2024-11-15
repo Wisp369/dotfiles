@@ -4,16 +4,16 @@ return {
     lazy = false,
     config = function()
       require("mason").setup()
-    end
+    end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
 
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "jdtls", "basedpyright" }
+        ensure_installed = { "lua_ls", "jdtls", "basedpyright" },
       })
-    end
+    end,
   },
   {
     "neovim/nvim-lspconfig",
@@ -21,8 +21,8 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities
       local lspconfig = require("lspconfig")
-      lspconfig.tsserver.setup({
-        capabilities = capabilities
+      lspconfig.ts_ls.setup({
+        capabilities = capabilities,
       })
       lspconfig.basedpyright.setup({})
       lspconfig.lua_ls.setup({})
@@ -30,6 +30,6 @@ return {
 
       --Keymappings--
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-    end
-  }
+    end,
+  },
 }

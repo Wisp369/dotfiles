@@ -1,31 +1,29 @@
 ---General---
---enables syntax higlighting
-vim.cmd("syntax on")
+vim.cmd("syntax on")--enables syntax higlighting
 
---Always enable tab line
-vim.opt.showtabline = 2
+vim.opt.showtabline = 2--Always enable tab line
 
---Saves and restores tab layout, useful for tabby.nvim
-vim.opt.sessionoptions = 'curdir,folds,globals,help,tabpages,terminal,winsize'
+vim.opt.wrap = false--Disable line wrapping
 
---adds line numbers
-vim.cmd("set number")
---shows line numbers relative to the current line
-vim.opt.relativenumber = true
+vim.opt.sessionoptions = 'curdir,folds,globals,help,tabpages,terminal,winsize'--Saves and restores tab layout, useful for tabby.nvim
+
+vim.cmd("set number")--adds line numbers
+vim.opt.relativenumber = true--shows line numbers relative to the current line
+
 
 --highlights the matched text pattern when searching
 vim.cmd("set incsearch")
 vim.cmd("set nohlsearch")
 
---Copy line indents to new line
-vim.opt.autoindent = true
+vim.opt.autoindent = true--Copy line indents to new line
 
 --Terminal Colours--
---forces dark mode for themes
-vim.opt.background = "dark"
+vim.opt.background = "dark"--forces dark mode for themes
 
---Adds sign column to prevent text from shifting
-vim.opt.signcolumn = "yes"
+
+vim.opt.termguicolors = true--forces terminal colours
+
+vim.opt.signcolumn = "yes"--Adds sign column to prevent text from shifting
 
 ---Tabbing---
 vim.cmd("set expandtab")
@@ -33,9 +31,8 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 
---Force system clipboard as default
-vim.opt.clipboard:append("unnamedplus")
+vim.opt.clipboard:append("unnamedplus")--Force system clipboard as default
 
 ---Mappings---
---maps space to be the "leader" key
-vim.g.mapleader = " "
+vim.g.mapleader = " "--maps space to be the "leader" key
+

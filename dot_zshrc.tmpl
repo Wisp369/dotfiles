@@ -19,7 +19,7 @@ zinit light Aloxaf/fzf-tab
 # Add in snippets
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
-{{ if eq .chezmoi.osRelease.name "Arch Linux" -}}
+{{ if eq .chezmoi.os "linux" -}}
 zinit snippet OMZP::archlinux
 {{- end }}
 zinit snippet OMZP::command-not-found
@@ -59,7 +59,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ls='ls --color'
 
 # Shell integrations
-{{- if eq .chezmoi.os "darwin" -}}
+{{if eq .chezmoi.os "darwin" -}}
 eval "$(/opt/homebrew/bin/brew shellenv)"
 {{- end }}
 eval $(fzf --zsh)
@@ -70,4 +70,4 @@ eval $(thefuck --alias FUCK)
 #Put this at the end
 fastfetch
 
-eval "$(oh-my-posh init zsh --config .config/omp-themes/slimfat.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.config/omp-themes/slimfat.omp.json)"

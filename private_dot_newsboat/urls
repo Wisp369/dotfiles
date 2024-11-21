@@ -1,10 +1,19 @@
-http://rss.cnn.com/rss/cnn_topstories.rss
+https://morss.it/:nolink:noref/rss.cnn.com/rss/cnn_topstories.rss
 
-https://www.cbc.ca/webfeed/rss/rss-topstories
-https://www.cbc.ca/webfeed/rss/rss-world
-https://www.cbc.ca/webfeed/rss/rss-canada
-https://www.cbc.ca/webfeed/rss/rss-politics
-https://www.cbc.ca/webfeed/rss/rss-technology
-https://www.cbc.ca/webfeed/rss/rss-canada-toronto
-https://www.cbc.ca/webfeed/rss/rss-canada-hamiltonnews
+https://morss.it/https://www.cbc.ca/webfeed/rss/rss-topstories
+https://morss.it/https://www.cbc.ca/webfeed/rss/rss-world
+https://morss.it/https://www.cbc.ca/webfeed/rss/rss-canada
+https://morss.it/https://www.cbc.ca/webfeed/rss/rss-technology
+https://morss.it/https://www.cbc.ca/webfeed/rss/rss-canada-toronto
+https://morss.it/https://www.cbc.ca/webfeed/rss/rss-canada-hamiltonnews
 
+https://morss.it/feeds.bbci.co.uk/news/rss.xml
+
+#Fun Youtube Channels
+#ThatguyfromCollege
+https://www.youtube.com/feeds/videos.xml?channel_id=UC1FEXU_DWnVnJEx-qroTJpg
+
+#TLDR News
+https://www.youtube.com/feeds/videos.xml?channel_id=UCSMqateX8OA2s1wsOR2EgJA
+https://www.youtube.com/feeds/videos.xml?channel_id=UC-uhvujip5deVcEtLxnW8qg
+https://www.youtube.com/feeds/videos.xml?channel_id=UC-eegKVWEgBCa4OzjnK_PtA

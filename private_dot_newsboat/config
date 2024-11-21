@@ -1,3 +1,11 @@
-browser "/Applications/Firefox.app"
+browser firefox
 
 refresh-on-startup yes
+
+download-full-page yes
+
+#html-renderer links
+
+cleanup-on-quit yes
+
+delete-read-articles-on-quit yes

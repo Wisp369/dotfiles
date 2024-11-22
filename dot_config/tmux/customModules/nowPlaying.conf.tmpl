@@ -3,7 +3,11 @@
 #Catppuccin module colour and icons
 set -ogq "@catppuccin_${MODULE_NAME}_icon" "󰫔"
 set -ogq "@catppuccin_${MODULE_NAME}_color" "#{E:@thm_pink}"
+{{ if eq .chezmoi.os "linux" -}}
 set -ogq "@catppuccin_${MODULE_NAME}_text" "#{l:#{playerctl_short}}"
+{{ else if eq .chezmoi.os "darwin" -}}
+set -ogq "@catppuccin_${MODULE_NAME}_text" "#{l:#{now_playing}}"
+{{- end }}
 
 source "~/.config/tmux/plugins/tmux/utils/status_module.conf"
 

@@ -51,11 +51,12 @@ set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'joshmedeski/tmux-nerd-font-window-name'
 set -g @plugin 'jaclu/tmux-menus'
 set -g @plugin 'gcla/tmux-wormhole'
-#Linux media controler
+{{ if eq .chezmoi.os "linux" -}}
 set -g @plugin 'richin13/tmux-plugin-playerctl'
+{{ else if eq .chezmoi.os "darwin" -}}
 #MacOS media controler
 set -g @plugin 'spywhere/tmux-now-playing'
-
+{{ end -}}
 set -g @plugin 'tmux-plugins/tpm'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)

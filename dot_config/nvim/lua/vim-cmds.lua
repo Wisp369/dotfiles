@@ -14,8 +14,12 @@ vim.opt.relativenumber = true--shows line numbers relative to the current line
 --highlights the matched text pattern when searching
 vim.cmd("set incsearch")
 vim.cmd("set nohlsearch")
+vim.opt.spelllang = "en_ca"
+vim.opt.spell = true
 
 vim.opt.autoindent = true--Copy line indents to new line
+
+vim.opt.conceallevel = 1--For obsidan.nvim
 
 --Terminal Colours--
 vim.opt.background = "dark"--forces dark mode for themes

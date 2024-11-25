@@ -30,27 +30,16 @@ set -agF status-right "#{E:@catppuccin_status_nowPlayingModule}"
 set -g status-left "#{?client_prefix,#[fg=#{@thm_red} bold]PREFIX ,#{?#{==:#{pane_mode},copy-mode},#[fg=#{@thm_yellow} bold]COPY ,#[fg=#{@thm_green} bold]#{prefix} }}" 
 set -agF status-right "#{E:@catppuccin_status_weather}"
 
-
-#tmux-browser
-set -g @open_browser_key 'B'
-set -g @browser_session_dir '~/.config/tmux/browser-sessions'
-set -g @browser_dont_hook_to_resurrect '1'
-set -g @browser_launch_on_attach '1'
-set -g @browser_close_on_deattach '1'
-
 #Allows for automatic tpm installation
 if "test ! -d ~/.tmux/plugins/tpm" \
    "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
 
 #List of plugins
-set -g @plugin 'tmux-plugins/tmux-sidebar'
-set -g @plugin 'ofirgall/tmux-browser'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'xamut/tmux-weather'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'joshmedeski/tmux-nerd-font-window-name'
 set -g @plugin 'jaclu/tmux-menus'
-set -g @plugin 'gcla/tmux-wormhole'
 {{ if eq .chezmoi.os "linux" -}}
 set -g @plugin 'richin13/tmux-plugin-playerctl'
 {{ else if eq .chezmoi.os "darwin" -}}

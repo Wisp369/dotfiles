@@ -7,6 +7,9 @@ set -g prefix C-Space
 set -g mouse on
 setw -g mode-keys vi
 
+set -gq allow-passthrough on
+set -g visual-activity off
+
 #Enable 256 colours for better ssh and stuff
 set -g default-terminal 'screen-256color'
 set -ag terminal-overrides ',xterm-256color*:RGB'

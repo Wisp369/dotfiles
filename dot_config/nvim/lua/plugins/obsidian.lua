@@ -10,6 +10,12 @@ return ({
   },
   config = function()
     require("obsidian").setup {
+      workspaces = {
+        {
+          name = "School Notes",
+          path = "~/Sync/SchoolNotes"
+        },
+      },
       completion = {
         nvim_cmp = true,
         },

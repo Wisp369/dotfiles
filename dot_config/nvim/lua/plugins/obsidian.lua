@@ -10,12 +10,6 @@ return ({
   },
   config = function()
     require("obsidian").setup {
-      workspaces = {
-        {
-          name = "School Notes",
-          path = "~/Onedrive - Sheridan College/ObsidianNotes/School_Notes",
-        },
-      },
       completion = {
         nvim_cmp = true,
         },

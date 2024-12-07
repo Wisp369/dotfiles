@@ -1,0 +1,7 @@
+[manager]
+prepend_keymap = [
+{ on = ["c", "c"], run = 'yank', desc = "Yank file" },
+{ on = "v", run = 'paste', desc = "Paste file" },
+{ on = ["c", "p"], run = 'copy --path', desc = "Copy path" },
+{ on = "<C-h>", run = 'hidden --toggle', desc = "Show hidden files" }
+]

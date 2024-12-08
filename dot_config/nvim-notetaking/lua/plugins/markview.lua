@@ -7,5 +7,6 @@ return {
     },
   config = function()
     --Put config stuff here
+    filetypes = {"markdown"}
   end
 }

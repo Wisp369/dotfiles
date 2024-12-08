@@ -22,8 +22,6 @@ zinit snippet OMZP::sudo
 {{ if eq .chezmoi.os "linux" -}}
 zinit snippet OMZP::archlinux
 {{- end }}
-zinit snippet OMZP::command-not-found
-
 # Load completions
 autoload -Uz compinit && compinit
 

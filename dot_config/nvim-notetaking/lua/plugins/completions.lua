@@ -7,6 +7,7 @@ return {
   dependencies = {
   "saadparwaiz1/cmp_luasnip",
   "rafamadriz/friendly-snippets",
+  "onsails/lspkind.nvim"
     }
   },
   {
@@ -15,7 +16,6 @@ return {
     -- Set up nvim-cmp.
     local cmp = require("cmp")
     require("luasnip.loaders.from_vscode").lazy_load()
-
     cmp.setup({
       snippet = {
         -- REQUIRED - you must specify a snippet engine
@@ -39,8 +39,20 @@ return {
         { name = 'luasnip' }, -- For luasnip users.
       }, {
         { name = "buffer" },
-      }),
-    })
-  end,
+          }),
+      })
+      local lspkind = require("lspkind")
+      cmp.setup {
+        formatting = {
+          format = lspkind.cmp_format({
+            mode = "symbol_text",
+            show_labelDetails = true,
+            before = function(entry, vim_item)
+              return vim_item
+            end
+            })
+          }
+        }
+  end
   }
 }

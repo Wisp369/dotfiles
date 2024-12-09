@@ -7,6 +7,7 @@ return {
   dependencies = {
   "saadparwaiz1/cmp_luasnip",
   "rafamadriz/friendly-snippets",
+  "onsails/lspkind.nvim"
     }
   },
   {
@@ -41,6 +42,18 @@ return {
         { name = "buffer" },
       }),
     })
-  end,
+      local lspkind = require("lspkind")
+      cmp.setup {
+        formatting = {
+          format = lspkind.cmp_format({
+            mode = "symbol_text",
+            show_labelDetails = true,
+            before = function(entry, vim_item)
+              return vim_item
+            end
+            })
+          }
+        }
+  end
   }
 }

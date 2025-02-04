@@ -29,6 +29,13 @@ source -F ~/.config/tmux/customModules/nowPlaying.conf
 #Catppuccin statusbar config and additions
 set -gF @catppuccin_window_status_style rounded
 
+#Tmux Continuum settings
+set -g @continuum-restore 'on'
+
+#Tmux Resurrect settings
+#Auto-restore nvim sessions
+set -g @resurrect-strategy-nvim 'session'
+
 set -agF status-right "#{E:@catppuccin_status_nowPlayingModule}"
 set -g status-left "#{?client_prefix,#[fg=#{@thm_red} bold]PREFIX ,#{?#{==:#{pane_mode},copy-mode},#[fg=#{@thm_yellow} bold]COPY ,#[fg=#{@thm_green} bold]#{prefix} }}" 
 set -agF status-right "#{E:@catppuccin_status_weather}"

@@ -1,14 +1,34 @@
+#Change the location of tmux.conf file
+set-environment -g TMUX_PLUGIN_MANAGER_PATH '~/.config/tmux/plugins/'
+
+#List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'xamut/tmux-weather'
+set -g @plugin 'catppuccin/tmux#v2.1.2'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin 'joshmedeski/tmux-nerd-font-window-name'
+set -g @plugin 'jaclu/tmux-menus'
+{{ if eq .chezmoi.os "linux" -}}
+set -g @plugin 'richin13/tmux-plugin-playerctl'
+{{ else if eq .chezmoi.os "darwin" -}}
+set -g @plugin 'spywhere/tmux-now-playing' #MacOS media controler
+{{ end -}}
+
 #Reload config file
 unbind r
 bind r source-file ~/.config/tmux/tmux.conf
 
 set -g prefix C-Space
 
+set-option -g allow-rename off
 set -g mouse on
 setw -g mode-keys vi
+set -g status-bg default #Transparent status bar
+set -g set-clipboard on #Use system clipboard
 
-set -gq allow-passthrough on
-set -g visual-activity off
+set -g base-index 1
+set -g renumber-windows on
 
 #Enable 256 colours for better ssh and stuff
 set -g default-terminal 'screen-256color'
@@ -17,17 +37,14 @@ set -ag terminal-overrides ',xterm-256color*:RGB'
 set -g pane-active-border fg=magenta
 set -g status-right-length 100
 set -g status-left-length 100
-set -g status-left ""
 
-#Plugin Settings
-#Catppuccin
-run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
-
-#Source custom modules
-source -F ~/.config/tmux/customModules/nowPlaying.conf
+#Plugin options
+#Run Catppuccin
+run ~/.config/tmux/plugins/tmux/catppuccin.tmux
 
 #Catppuccin statusbar config and additions
 set -gF @catppuccin_window_status_style rounded
+set -g @catppuccin_flavor 'mocha'
 
 #Tmux Continuum settings
 set -g @continuum-restore 'on'
@@ -36,27 +53,20 @@ set -g @continuum-restore 'on'
 #Auto-restore nvim sessions
 set -g @resurrect-strategy-nvim 'session'
 
-set -agF status-right "#{E:@catppuccin_status_nowPlayingModule}"
-set -g status-left "#{?client_prefix,#[fg=#{@thm_red} bold]PREFIX ,#{?#{==:#{pane_mode},copy-mode},#[fg=#{@thm_yellow} bold]COPY ,#[fg=#{@thm_green} bold]#{prefix} }}" 
+#Status bar setup
+#Source custom modules
+source -F ~/.config/tmux/customModules/nowPlaying.conf
+source -F ~/.config/tmux/customModules/Prefix.conf
+#Add status bar modules
+#Right side modules
+set -gF status-right "#{E:@catppuccin_status_nowPlayingModule}"
+#Left side modules
 set -agF status-right "#{E:@catppuccin_status_weather}"
+set -gF status-left "#{E:@catppuccin_status_PrefixModule}"
 
 #Allows for automatic tpm installation
-if "test ! -d ~/.tmux/plugins/tpm" \
-   "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
-
-#List of plugins
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'xamut/tmux-weather'
-set -g @plugin 'tmux-plugins/tmux-continuum'
-set -g @plugin 'joshmedeski/tmux-nerd-font-window-name'
-set -g @plugin 'jaclu/tmux-menus'
-{{ if eq .chezmoi.os "linux" -}}
-set -g @plugin 'richin13/tmux-plugin-playerctl'
-{{ else if eq .chezmoi.os "darwin" -}}
-#MacOS media controler
-set -g @plugin 'spywhere/tmux-now-playing'
-{{ end -}}
-set -g @plugin 'tmux-plugins/tpm'
+if "test ! -d ~/.config/tmux/plugins/tpm" \
+   "run 'git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm && ~/.config/tmux/plugins/tpm/bin/install_plugins'"
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run '~/.tmux/plugins/tpm/tpm'
+run '~/.config/tmux/plugins/tpm/tpm'

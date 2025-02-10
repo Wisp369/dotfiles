@@ -21,6 +21,7 @@ bind r source-file ~/.config/tmux/tmux.conf
 
 set -g prefix C-Space
 
+# set-window-option -g automatic-rename off
 set-option -g allow-rename off
 set -g mouse on
 setw -g mode-keys vi
@@ -45,6 +46,8 @@ run ~/.config/tmux/plugins/tmux/catppuccin.tmux
 #Catppuccin statusbar config and additions
 set -gF @catppuccin_window_status_style rounded
 set -g @catppuccin_flavor 'mocha'
+set -g @catppuccin_window_current_text "#{window_name}"
+set -g @catppuccin_window_text "#{window_name}"
 
 #Tmux Continuum settings
 set -g @continuum-restore 'on'

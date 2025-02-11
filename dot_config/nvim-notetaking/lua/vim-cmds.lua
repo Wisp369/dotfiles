@@ -38,5 +38,9 @@ vim.cmd("set shiftwidth=2")
 vim.opt.clipboard:append("unnamedplus")--Force system clipboard as default
 
 ---Mappings---
+local key = vim.api.nvim_set_keymap
 vim.g.mapleader = " "--maps space to be the "leader" key
-
+key("n", "<Tab>l", ":tabNext<cr>", { noremap = true })
+key("n", "<Tab>h", ":tabprevious<cr>", { noremap = true })
+key("n", "x", '"_x', { noremap = true })
+key("n", "X", '"_X', { noremap = true })

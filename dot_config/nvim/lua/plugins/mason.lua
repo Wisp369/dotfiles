@@ -22,7 +22,6 @@ return {
       lspconfig.ts_ls.setup({
         capabilities = capabilities,
       })
-      lspconfig.basedpyright.setup({})
       lspconfig.lua_ls.setup({})
 
       --Keymappings--

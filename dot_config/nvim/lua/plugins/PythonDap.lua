@@ -1,6 +1,7 @@
 return {
   "mfussenegger/nvim-dap-python",
   config = function()
-  require("dap-python").setup("~/.pyvenvs/debugpy/bin/python")
+  local pythonPath = table.concat({ vim.fn.stdpath('data'),  'mason', 'packages', 'debugpy', 'venv', 'bin', 'python'}, '/'):gsub('//+', '/')
+  require("dap-python").setup(pythonPath)
   end
 }

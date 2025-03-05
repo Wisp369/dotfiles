@@ -17,5 +17,5 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   {import = "plugins"}, -- Add the plugins dir
   {import = "plugins.mason"}, --Add the mason dir from plugins
-  {import = "plugins.mason.daps"} --Add the daps dir to load all debug adapters
+  {import = "plugins.daps"} --Add the daps dir to load all debug adapters
 })

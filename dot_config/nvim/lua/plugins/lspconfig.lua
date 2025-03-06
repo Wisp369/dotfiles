@@ -1,8 +1,10 @@
 return {
   "neovim/nvim-lspconfig",
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim"
+    "williamboman/mason-lspconfig.nvim",
+    "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -16,14 +18,35 @@ return {
     }
 
     local lspconfig = require("lspconfig")
-    lspconfig.ts_ls.setup({
+    lspconfig["basedpyright"].setup({
       capabilities = capabilities,
+      on_attach = on_attach,
     })
-    lspconfig.basedpyright.setup({
+
+    lspconfig["lua_ls"].setup({
       capabilities = capabilities,
+      on_attach = on_attach,
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" }
+          },
+          workspace = {
+            library = {
+              [vim.fn.expand("VIMRUNTIME/lua")] = true,
+              [vim.fn.stdpath("config") .. "/lua"] = true,
+            },
+          },
+        },
+      },
     })
-    lspconfig.lua_ls.setup({
+    lspconfig["csharp_ls"].setup({
       capabilities = capabilities,
+      on_attach = on_attach,
+    })
+    lspconfig["lemminx"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
     })
 
     --Keymappings--

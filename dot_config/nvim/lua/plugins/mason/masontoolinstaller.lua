@@ -4,11 +4,8 @@ return {
     require("mason-tool-installer").setup({
       ensure_installed = ({
         "lua-language-server",
-        "vim-language-server",
-        "isort",
         "black",
         "stylua",
-        "shellcheck",
       }),
       integrations = {
         ["mason-lspconfig"] = true,

@@ -9,7 +9,7 @@ return {
       require("null-ls")
       require("mason").setup()
       require("mason-null-ls").setup({
-        ensure_installed = { "stylua", "jq" },
+        ensure_installed = { "stylua" },
           automatic_installation = false --TODO: Change this
       })
     end

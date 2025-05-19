@@ -10,6 +10,8 @@ vim.opt.sessionoptions = 'curdir,folds,globals,help,tabpages,terminal,winsize'--
 vim.cmd("set number")--adds line numbers
 vim.opt.relativenumber = true--shows line numbers relative to the current line
 
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}-- For nvim-cmp
+
 
 --highlights the matched text pattern when searching
 vim.cmd("set incsearch")

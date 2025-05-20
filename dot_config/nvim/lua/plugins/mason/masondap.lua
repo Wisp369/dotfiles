@@ -39,7 +39,33 @@ return {
             end
           end,
         }
-      }
+      },
+      c = {
+        {
+          name = "Launch file",
+          type = "codelldb",
+          request = "launch",
+          program = function()
+            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          end,
+          cwd = "${workspaceFolder}",
+          stopAtEntry = false,
+          MIMode = "lldb",
+        },
+        {
+          name = "Attach to lldbserver :1234",
+          type = "codelldb",
+          request = "launch",
+          MIMode = "lldb",
+          miDebuggerServerAddress = "localhost:1234",
+          miDebuggerPath = vim.fn.exepath("codelldb"),
+          cwd = "${workspaceFolder}",
+          program = function()
+            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          end,
+        },
+      },
+      cpp = dap.configurations.c,
     }
   end,
 }

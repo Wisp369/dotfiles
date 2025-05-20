@@ -3,6 +3,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
+    { "antosha417/nvim-lsp-file-operations", config = true }
   },
   config = function()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -49,6 +50,18 @@ return {
     lspconfig["clangd"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+    })
+    --Sourcekit lsp (Swift)--
+    lspconfig["sourcekit"].setup({
+      capabilities = {
+        workspace = {
+          didChangeWatchedFiles = {
+            dynamicRegistration = true,
+          },
+        },
+      },
+      on_attach = on_attach,
+      cmd = lsp == "sourcekit" and { vim.trim(vim.fn.system("xcrun -f sourcekit-lsp")) } or nil,
     })
 
     --Keymappings--

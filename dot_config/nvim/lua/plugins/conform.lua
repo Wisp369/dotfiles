@@ -9,13 +9,15 @@ return {
         xml = { "xmlformatter" },
         python = { "isort", "black" },
         c = { "clang-format" },
-        --c++ = { "clang-format" },
+        cpp = { "clang-format" },
+        swift = { "swiftformat" },
       },
       format_after_save = {
         lsp_fallback = true,
         async = true,
         timeout_ms = 1000,
       },
+      log_level = vim.log.levels.INFO,
     })
     vim.keymap.set({ "n", "v" }, "<leader>fc", function()
       conform.format({

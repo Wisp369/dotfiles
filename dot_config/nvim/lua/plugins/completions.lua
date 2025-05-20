@@ -16,6 +16,7 @@ return {
     config = function()
       -- Set up nvim-cmp.
       local cmp = require("cmp")
+      local luasnip = require("luasnip")
       require("luasnip.loaders.from_vscode").lazy_load()
 
       cmp.setup({
@@ -28,19 +29,22 @@ return {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
         },
+        sources = {
+          { name = "path"},
+          { name = "nvim_lsp"},
+          { name = "luasnip"},
+          { name = "buffer"},
+        },
+        -- Keybinds --
         mapping = cmp.mapping.preset.insert({
+          ["<C-j>"] = cmp.mapping.select_prev_item(select_opts),
+          ["<C-k>"] = cmp.mapping.select_next_item(select_opts),
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
           ["<TAB>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         }),
-        sources = {
-          { name = "nvim_lsp" },
-          { name = "luasnip" },
-          { name = "path" },
-          { name = "buffer" },
-        },
       })
       local ls = require "luasnip"
       ls.config.set_config {

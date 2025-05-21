@@ -11,6 +11,7 @@ return {
         c = { "clang-format" },
         cpp = { "clang-format" },
         swift = { "swiftformat" },
+        asm = { "asmfmt" }
       },
       format_after_save = {
         lsp_fallback = true,

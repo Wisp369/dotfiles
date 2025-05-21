@@ -51,6 +51,11 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     })
+    --asm-lsp (Assembly)--
+    lspconfig["asm_lsp"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
     --Sourcekit lsp (Swift)--
     lspconfig["sourcekit"].setup({
       capabilities = {

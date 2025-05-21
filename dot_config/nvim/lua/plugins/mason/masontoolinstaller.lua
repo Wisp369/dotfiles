@@ -15,6 +15,8 @@ return {
         "debugpy",
         "clangd",
         "clang-format",
+        "asm-lsp",
+        "asmfmt"
       }),
       integrations = {
         ["mason-lspconfig"] = true,

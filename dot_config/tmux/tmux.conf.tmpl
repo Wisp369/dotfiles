@@ -7,8 +7,6 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'xamut/tmux-weather'
 set -g @plugin 'catppuccin/tmux#v2.1.2'
 set -g @plugin 'tmux-plugins/tmux-continuum'
-set -g @plugin 'joshmedeski/tmux-nerd-font-window-name'
-set -g @plugin 'jaclu/tmux-menus'
 {{ if eq .chezmoi.os "linux" -}}
 set -g @plugin 'richin13/tmux-plugin-playerctl'
 {{ else if eq .chezmoi.os "darwin" -}}
@@ -75,8 +73,8 @@ source -F ~/.config/tmux/customModules/Prefix.conf
 #Add status bar modules
 #Right side modules
 set -gF status-right "#{E:@catppuccin_status_nowPlayingModule}"
-#Left side modules
 set -agF status-right "#{E:@catppuccin_status_weather}"
+#Left side modules
 set -gF status-left "#{E:@catppuccin_status_PrefixModule}"
 
 #Allows for automatic tpm installation

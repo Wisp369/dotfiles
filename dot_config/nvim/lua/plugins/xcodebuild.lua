@@ -1,5 +1,7 @@
 return {
   "wojciech-kulik/xcodebuild.nvim",
+  --Only load when a .swift file is opened
+  ft = "swift",
   dependencies = {
     "nvim-telescope/telescope.nvim",
     "MunifTanjim/nui.nvim",

@@ -68,7 +68,6 @@ return {
       on_attach = on_attach,
       cmd = lsp == "sourcekit" and { vim.trim(vim.fn.system("xcrun -f sourcekit-lsp")) } or nil,
     })
-
     --Keymappings--
     vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
   end

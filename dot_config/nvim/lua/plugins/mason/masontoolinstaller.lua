@@ -21,6 +21,7 @@ return {
         "csharpier",
         "netcoredbg",
         "cpplint",
+        "ast-grep",
       }),
       integrations = {
         ["mason-lspconfig"] = true,

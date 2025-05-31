@@ -10,8 +10,9 @@ return {
         python = { "isort", "black" },
         c = { "clang-format" },
         cpp = { "clang-format" },
+        csharp = { "csharpier" },
         swift = { "swiftformat" },
-        asm = { "asmfmt" }
+        asm = { "asmfmt" },
       },
       format_after_save = {
         lsp_fallback = true,

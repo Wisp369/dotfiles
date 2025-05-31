@@ -1,13 +1,12 @@
 return {
   "neovim/nvim-lspconfig",
-  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
+    "saghen/blink.cmp",
     { "antosha417/nvim-lsp-file-operations", config = true }
   },
   config = function()
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+    --local capabilities = vim.lsp.protocol.make_client_capabilities()
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
     local lspconfig = require("lspconfig")
 
     --- LSP Configs ---
@@ -15,7 +14,6 @@ return {
     --Putting this at the top because it's big--
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
       settings = {
         Lua = {
           diagnostics = {
@@ -23,8 +21,7 @@ return {
           },
           workspace = {
             library = {
-              [vim.fn.expand("VIMRUNTIME/lua")] = true,
-              [vim.fn.stdpath("config") .. "/lua"] = true,
+              [vim.fn.expand("VIMRUNTIME/lua")] = true, [vim.fn.stdpath("config") .. "/lua"] = true,
             },
           },
         },

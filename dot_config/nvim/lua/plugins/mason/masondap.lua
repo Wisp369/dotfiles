@@ -17,7 +17,7 @@ return {
         end,
       },
     })
-    ---DAP Configurations---
+    --- DAP Configurations ---
     dap.configurations = {
       python = {
         {
@@ -66,6 +66,16 @@ return {
         },
       },
       cpp = dap.configurations.c,
+      cs = {
+        {
+          type = "coreclr",
+          name = "launch - netcoredbg",
+          request = "launch",
+          program = function()
+            return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/net9.0/", "file")
+          end,
+        },
+      },
       swift = {
         {
           config = function()
@@ -85,5 +95,16 @@ return {
         },
       },
     }
+    --- Adapter Configurations ---
+    dap.adapters.coreclr = {
+      type = "executable",
+      command = vim.fn.exepath("netcoredbg"),
+      args = { "--interpreter=vscode" },
+    }
+    dap.adapters.netcoredbg = {
+      type = "executable",
+      command = vim.fn.exepath("netcoredbg"),
+      args = { "--interpreter=vscode" },
+} 
   end,
 }

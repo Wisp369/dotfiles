@@ -4,55 +4,28 @@ return {
     "saghen/blink.cmp",
     { "antosha417/nvim-lsp-file-operations", config = true }
   },
-  config = function()
-    --local capabilities = vim.lsp.protocol.make_client_capabilities()
-    local capabilities = require("blink.cmp").get_lsp_capabilities()
-    local lspconfig = require("lspconfig")
 
-    --- LSP Configs ---
-    --Lua ls (Lua)--
-    --Putting this at the top because it's big--
-    lspconfig["lua_ls"].setup({
-      capabilities = capabilities,
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { "vim" }
-          },
-          workspace = {
-            library = {
-              [vim.fn.expand("VIMRUNTIME/lua")] = true, [vim.fn.stdpath("config") .. "/lua"] = true,
-            },
-          },
-        },
-      },
-    })
-    --Basedpyright(Python)--
-    lspconfig["basedpyright"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+  --- Auto LSP Server setup ---
+  -- Declare servers --
+  opts = {
+    servers = {
+      lua_ls = {},
+      basedpyright = {},
+      csharp_ls = {},
+      lemminx = {},
+      clangd = {},
+      asm_lsp = {},
+    }
+  },
+  -- Setup servers --
+  config = function(_, opts)
+   local lspconfig = require("lspconfig")
+    for server, config in pairs(opts.servers) do
+      config.capabilities = require("blink.cmp").get_lsp_capabilities()
+      lspconfig[server].setup(config)
+    end
 
-    --Csharp ls(C#)--
-    lspconfig["csharp_ls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-    --Lemminx (XML / XAML)--
-    lspconfig["lemminx"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-    --Clangd (C, C++)--
-    lspconfig["clangd"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-    --asm-lsp (Assembly)--
-    lspconfig["asm_lsp"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+    --- Manual LSP Configs ---
     --Sourcekit lsp (Swift)--
     lspconfig["sourcekit"].setup({
       capabilities = {

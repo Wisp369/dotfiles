@@ -11,7 +11,6 @@ return {
     servers = {
       lua_ls = {},
       basedpyright = {},
-      csharp_ls = {},
       lemminx = {},
       clangd = {},
       asm_lsp = {},
@@ -26,6 +25,14 @@ return {
     end
 
     --- Manual LSP Configs ---
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
+    -- Omnisharp (C#) --
+    local pid = vim.fn.getpid()
+
+    lspconfig["omnisharp"].setup({
+      cmd = { vim.fn.exepath("OmniSharp"), "--languageserver", "--hostPID", tostring(pid) },
+      capabilities = capabilities,
+    })
     --Sourcekit lsp (Swift)--
     lspconfig["sourcekit"].setup({
       capabilities = {

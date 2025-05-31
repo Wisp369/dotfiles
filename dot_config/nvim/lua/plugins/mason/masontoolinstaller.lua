@@ -16,7 +16,11 @@ return {
         "clangd",
         "clang-format",
         "asm-lsp",
-        "asmfmt"
+        "asmfmt",
+        "omnisharp",
+        "csharpier",
+        "netcoredbg",
+        "cpplint",
       }),
       integrations = {
         ["mason-lspconfig"] = true,

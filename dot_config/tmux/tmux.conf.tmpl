@@ -3,10 +3,8 @@ set-environment -g TMUX_PLUGIN_MANAGER_PATH '~/.config/tmux/plugins/'
 
 #List of plugins
 set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'xamut/tmux-weather'
 set -g @plugin 'catppuccin/tmux#v2.1.2'
-set -g @plugin 'tmux-plugins/tmux-continuum'
 {{ if eq .chezmoi.os "linux" -}}
 set -g @plugin 'richin13/tmux-plugin-playerctl'
 {{ else if eq .chezmoi.os "darwin" -}}
@@ -58,13 +56,6 @@ set -gF @catppuccin_window_status_style rounded
 set -g @catppuccin_flavor 'mocha'
 set -g @catppuccin_window_current_text "#{window_name}"
 set -g @catppuccin_window_text "#{window_name}"
-
-#Tmux Continuum settings
-set -g @continuum-restore 'on'
-
-#Tmux Resurrect settings
-#Auto-restore nvim sessions
-set -g @resurrect-strategy-nvim 'session'
 
 #Status bar setup
 #Source custom modules

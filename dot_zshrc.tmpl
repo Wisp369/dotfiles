@@ -60,7 +60,7 @@ export MANPAGER='nvim +Man!'
 export GPG_TTY=$(tty)
 # Nvim config selector
 function nv() {
-  local config=$(find ~/.config -name "nvim*" -maxdepth 1 | fzf --prompt="Neovim Configs > " --height=~50% --layout=reverse --border --exit-0)
+  local config=$(find ~/.config -maxdepth 1 -name "nvim*" | fzf --prompt="Neovim Configs > " --height=~50% --layout=reverse --border --exit-0)
  
   # If I exit fzf without selecting a config, don't open Neovim
   [[ -z $config ]] && echo "No config selected" && return

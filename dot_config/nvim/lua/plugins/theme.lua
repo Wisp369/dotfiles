@@ -12,15 +12,12 @@
     vim.cmd('colorscheme carbonfox')
   end
 }]]
-
---Aura theme--
+--Pywal theme--
 return {
-  "baliestri/aura-theme",
-  lazy = false,
-  priority = 1000,
+  'uZer/pywal16.nvim',
+  config = function()
+    local wal = require("pywal16")
 
-  config = function(plugin)
-    vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
-    vim.cmd([[colorscheme aura-dark]])
-  end
+    vim.cmd.colorscheme("pywal16")
+  end,
 }

@@ -11,6 +11,7 @@ return {
       swift = { "swiftlint" },
       csharp = { "ast-grep" },
     }
+
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
@@ -23,5 +24,9 @@ return {
     vim.keymap.set("n", "<leader>fl", function()
       lint.try_lint()
     end, { desc = "Trigger linting for current file" })
+
+    -- Configure pylint
+    require('lint').linters.pylint.cmd = vim.fn.exepath("pylint")
+    require('lint').linters.pylint.args = { '--disable=C0103,C0304,C0114,E0401', '-f', 'json', vim.api.nvim_buf_get_name(0) }
   end,
 }

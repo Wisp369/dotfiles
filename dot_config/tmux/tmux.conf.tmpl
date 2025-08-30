@@ -10,6 +10,10 @@ set -g @plugin 'richin13/tmux-plugin-playerctl'
 {{ else if eq .chezmoi.os "darwin" -}}
 set -g @plugin 'spywhere/tmux-now-playing' #MacOS media controler
 {{ end -}}
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+#Keep this at the bottom
+set -g @plugin 'tmux-plugins/tmux-continuum'
 
 #Reload config file
 unbind r
@@ -50,6 +54,11 @@ set -g status-left-length 100
 #Run Catppuccin
 run ~/.config/tmux/plugins/tmux/catppuccin.tmux
 
+#tmux-resurrect options
+set -g @resurrect-capture-pane-contents 'on'
+set -g @resurrect-strategy-nvim 'session'
+#Auto restore with tmux-continuum
+set -g @continuum-restore 'on'
 #Catppuccin statusbar config and additions
 set -gF @catppuccin_window_status_style rounded
 set -g @catppuccin_flavor 'mocha'

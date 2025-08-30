@@ -1,64 +1,31 @@
 return {
   {
-    "hrsh7th/nvim-cmp",
-    priority = 100,
-    Lazy = false,
+    "saghen/blink.cmp",
+    version = '1.*',
     dependencies = {
       { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
-      "saadparwaiz1/cmp_luasnip",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-nvim-lsp",
-      "rafamadriz/friendly-snippets",
-      "onsails/lspkind.nvim",
     },
 
-    config = function()
-      -- Set up nvim-cmp.
-      local cmp = require("cmp")
-      require("luasnip.loaders.from_vscode").lazy_load()
+    opts = {
+      keymap = {
+        preset = "default",
 
-      cmp.setup({
-        snippet = {
-          expand = function(args)
-            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-          end,
-        },
-        window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
-        },
-        mapping = cmp.mapping.preset.insert({
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-e>"] = cmp.mapping.abort(),
-          ["<TAB>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        }),
-        sources = {
-          { name = "nvim_lsp" },
-          { name = "path" },
-          { name = "buffer" },
-        },
-      })
-      local ls = require "luasnip"
-      ls.config.set_config {
-        history = false,
-        updateevents = "TextChanged, TextChangedI"
-      }
-      local lspkind = require("lspkind")
-      cmp.setup {
-        formatting = {
-          format = lspkind.cmp_format({
-            mode = "symbol_text",
-            show_labelDetails = true,
-            before = function(entry, vim_item)
-              return vim_item
-            end
-          })
-        }
-      }
-    end
-
+        ["<Tab>"] = { "select_and_accept", "fallback" },
+        ["<C-k>"] = { 'show', 'show_documentation', 'hide_documentation' },
+      },
+      appearance = {
+        nerd_font_variant = "mono"
+      },
+      completion = {
+        documentation = { auto_show = true, auto_show_delay_ms = 500 },
+        ghost_text = { enabled = true },
+      },
+      snippets = { preset = 'luasnip' },
+      fuzzy = { implementation = "prefer_rust_with_warning" },
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+      },
+    },
+    opts_extend = { "sources.default" }
   }
 }

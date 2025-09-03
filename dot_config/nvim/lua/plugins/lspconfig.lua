@@ -14,6 +14,7 @@ return {
       clangd = {},
       asm_lsp = {},
       bashls = {},
+      kotlin_language_server = {},
     }
   },
   -- Setup servers --

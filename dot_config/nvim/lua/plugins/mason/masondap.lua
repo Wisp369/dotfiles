@@ -35,7 +35,7 @@ return {
             elseif vim.fn.executable(cwd .. '/.venv/bin/python') == 1 then
               return cwd .. '/.venv/bin/python'
             else
-              return '/usr/bin/python'
+              return '/usr/bin/python3'
             end
           end,
         }
@@ -105,6 +105,6 @@ return {
       type = "executable",
       command = vim.fn.exepath("netcoredbg"),
       args = { "--interpreter=vscode" },
-} 
+    }
   end,
 }

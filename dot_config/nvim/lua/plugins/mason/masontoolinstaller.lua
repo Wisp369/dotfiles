@@ -19,7 +19,7 @@ return {
         "netcoredbg",
         "cpplint",
         "ast-grep",
-        "kotlin-lsp",
+        "kotlin-language-server",
       }),
       integrations = {
         ["mason-lspconfig"] = true,

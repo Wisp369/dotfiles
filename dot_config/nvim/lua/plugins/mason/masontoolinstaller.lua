@@ -7,10 +7,7 @@ return {
         "black",
         "stylua",
         "basedpyright",
-        "xmlformatter",
         "pylint",
-        "isort",
-        "lemminx",
         "codelldb",
         "debugpy",
         "clangd",
@@ -22,6 +19,7 @@ return {
         "netcoredbg",
         "cpplint",
         "ast-grep",
+        "kotlin-lsp",
       }),
       integrations = {
         ["mason-lspconfig"] = true,

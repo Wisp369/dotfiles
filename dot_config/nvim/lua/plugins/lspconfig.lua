@@ -11,9 +11,9 @@ return {
     servers = {
       lua_ls = {},
       basedpyright = {},
-      lemminx = {},
       clangd = {},
       asm_lsp = {},
+      bashls = {},
     }
   },
   -- Setup servers --

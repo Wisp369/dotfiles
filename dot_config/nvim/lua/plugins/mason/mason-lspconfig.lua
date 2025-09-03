@@ -4,7 +4,7 @@ return {
   "neovim/nvim-lspconfig",
   config = function()
     require("mason-lspconfig").setup {
-      ensure_installed = { "lua_ls", "basedpyright", "csharp_ls", "lemminx", "clangd", },
+      ensure_installed = { "lua_ls", "basedpyright", "csharp_ls", "clangd", },
     }
   end
 }

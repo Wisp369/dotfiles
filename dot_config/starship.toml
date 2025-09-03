@@ -13,6 +13,7 @@ $elixir\
 $elm\
 $golang\
 $gradle\
+$dotnet\
 $haskell\
 $java\
 $julia\
@@ -74,6 +75,11 @@ symbol = " "
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
+[dotnet]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
 [docker_context]
 symbol = " "
 style = "bg:#06969A"
@@ -97,6 +103,17 @@ format = '[ $symbol $branch ]($style)'
 [git_status]
 style = "bg:#FCA17D"
 format = '[$all_status$ahead_behind ]($style)'
+conflicted = '\($count\) '
+ahead = '-> '
+behind = '<- '
+diverged = '󰃻'
+up_to_date = '✓'
+untracked = '?\($count\) '
+stashed = ' '
+modified = '!\($count\) '
+staged = '[++\($count\)](green) '
+renamed = '\($count\) '
+deleted = '󱂦\($count\) '
 
 [golang]
 symbol = " "
@@ -146,4 +163,4 @@ format = '[ $symbol ($version) ]($style)'
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#33658A"
-format = '[ ♥ $time ]($style)'
+format = '[ 󰄛 $time ]($style)'

@@ -111,7 +111,7 @@ up_to_date = '✓'
 untracked = '?\($count\) '
 stashed = ' '
 modified = '!\($count\) '
-staged = '[++\($count\)](green) '
+staged = '[\($count\)] '
 renamed = '\($count\) '
 deleted = '󱂦\($count\) '
 
@@ -161,6 +161,7 @@ format = '[ $symbol ($version) ]($style)'
 
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
+time_format = "%r" # Hour:Minute Format
 style = "bg:#33658A"
+use_12hr = true
 format = '[ 󰄛 $time ]($style)'

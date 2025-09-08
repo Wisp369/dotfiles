@@ -111,7 +111,7 @@ up_to_date = '✓'
 untracked = '?\($count\) '
 stashed = ' '
 modified = '!\($count\) '
-staged = '[\($count\)] '
+staged = '\($count\) '
 renamed = '\($count\) '
 deleted = '󱂦\($count\) '
 

@@ -15,9 +15,9 @@ return {
       asm_lsp = {},
       bashls = {},
       kotlin_language_server = {},
-      css_lsp = {},
-      eslint_lsp = {},
-      html_lsp = {},
+      cssls = {},
+      html = {},
+      biome = {},
     }
   },
   -- Setup servers --

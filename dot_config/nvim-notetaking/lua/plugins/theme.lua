@@ -1,7 +1,6 @@
 --[[
 return {
   "EdenEast/nightfox.nvim", --Nightfox Theme
-  dependencies = { "OXY2DEV/markview.nvim" },
 
   config = function()
     require('theme').setup({

@@ -18,14 +18,17 @@ return ({
       },
       completion = {
         nvim_cmp = true,
-        },
+      },
       templates = {
-      subdir = "Templates",
-      date_format = "%d-%m-%Y",
-  },
+        subdir = "Templates",
+        date_format = "%d-%m-%Y",
+      },
       attachments = {
         img_folder = "Diagrams/",
-      }
+      },
+      ui = {
+        enable = false
+      },
     }
   end,
 })

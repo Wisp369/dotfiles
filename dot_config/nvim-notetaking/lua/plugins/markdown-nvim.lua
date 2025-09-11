@@ -4,7 +4,7 @@ return {
   dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
   config = function()
     require('render-markdown').setup({
-      completions = { blink = { enabled = true } },
+      completions = { lsp = { enabled = true } },
       heading = {
         enabled = true,
         render_modes = false,

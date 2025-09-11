@@ -18,7 +18,8 @@ return {
       cssls = {},
       html = {},
       biome = {},
-    }
+    },
+    autoformat = false,
   },
   -- Setup servers --
   config = function(_, opts)

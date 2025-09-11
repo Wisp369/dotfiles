@@ -10,6 +10,7 @@ return {
         python = { "isort", "black" },
         c = { "clang-format" },
         cpp = { "clang-format" },
+        kotlin = { "ktlint" },
         csharp = { "csharpier" },
         swift = { "swiftformat" },
         asm = { "asmfmt" },

@@ -12,4 +12,4 @@ map("n", "<leader>T", ":ObsidianTemplate<CR>", { noremap = true })
 
 
 --- Autosession ---
-vim.keymap.set("n", "<leader>sl", ":SessionRestore<CR>", {})
+vim.keymap.set("n", "<leader>sl", ":AutoSession restore<CR>", {})

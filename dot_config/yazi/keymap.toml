@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 prepend_keymap = [
 { on = ["c", "c"], run = 'yank', desc = "Copy file" },
 { on = "v", run = 'paste', desc = "Paste file" },

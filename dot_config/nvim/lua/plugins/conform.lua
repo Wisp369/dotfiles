@@ -6,14 +6,15 @@ return {
 
     conform.setup({
       formatters_by_ft = {
-        xml = { "xmlformatter" },
         python = { "isort", "black" },
         c = { "clang-format" },
         cpp = { "clang-format" },
         kotlin = { "ktlint" },
         csharp = { "csharpier" },
         swift = { "swiftformat" },
-        asm = { "asmfmt" },
+        html = { "prettier" },
+        css = { "prettier" },
+        javascript = { "prettier" },
       },
       format_after_save = {
         lsp_fallback = true,

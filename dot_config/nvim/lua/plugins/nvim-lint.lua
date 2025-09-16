@@ -9,7 +9,9 @@ return {
       c = { "cpplint" },
       cpp = { "cpplint" },
       swift = { "swiftlint" },
-      csharp = { "ast-grep" },
+      html = { "htmlhint" },
+      css = { "stylelint" },
+      javascript = { "eslint" },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

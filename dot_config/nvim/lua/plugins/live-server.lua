@@ -1,11 +1,11 @@
 return {
-  "barrett-ruth/live-server.nvim",
-  build = 'npm add -g live-server',
-  cmd = { 'LiveServerStart', 'LiveServerStop' },
-  config = true,
+  "brianhuster/live-preview.nvim",
+  dependencies = {
+    "nvim-telescope/telescope.nvim"
+  },
   config = function()
-   require("live-server").setup({
-
-    }) 
+    require("live-preview").setup({
+      picker = "telescope"
+    })
   end
 }

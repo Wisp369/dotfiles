@@ -3,11 +3,13 @@ return {
   -- event = 'VimEnter', -- if you want lazy load, see below
   dependencies = 'nvim-tree/nvim-web-devicons',
   config = function()
+    local pywal16_core = require("pywal16.core")
+    local colours = pywal16_core.get_colors()
     local theme = {
       fill = 'TabLineFill',
       head = 'TabLine',
-      current_tab = 'TabLineSel',
-      tab = 'TabLine',
+      current_tab = { fg = colours.color5, style = "italic" },
+      tab = { fg = colours.color14 },
       win = 'TabLine',
       tail = 'TabLine',
     }

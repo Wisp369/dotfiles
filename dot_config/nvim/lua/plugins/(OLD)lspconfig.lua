@@ -1,4 +1,6 @@
 return {
+  --[[
+-- Still need to migrate some things (Swift and XCode) over
   "neovim/nvim-lspconfig",
   dependencies = {
     "saghen/blink.cmp",
@@ -11,7 +13,6 @@ return {
     servers = {
       lua_ls = {},
       basedpyright = {},
-      clangd = {},
       bashls = {},
       kotlin_language_server = {},
       html = {},
@@ -22,10 +23,10 @@ return {
   },
   -- Setup servers --
   config = function(_, opts)
-    local lspconfig = require("lspconfig")
+    local lspconfig = vim.lsp.enable
     for server, config in pairs(opts.servers) do
       config.capabilities = require("blink.cmp").get_lsp_capabilities()
-      lspconfig[server].setup(config)
+      vim.lsp.config[server]
     end
 
     --- Manual LSP Configs ---
@@ -33,12 +34,18 @@ return {
     -- Omnisharp (C#) --
     local pid = vim.fn.getpid()
 
-    lspconfig["omnisharp"].setup({
+    lspconfig["omnisharp"]({
       cmd = { vim.fn.exepath("OmniSharp"), "--languageserver", "--hostPID", tostring(pid) },
       capabilities = capabilities,
     })
+    -- Clangd (C/C++) --
+    lspconfig["clangd"]({
+      cmd = { 'clangd' },
+      filetypes = { 'c', 'cpp' },
+      capabilities = capabilities,
+    })
     --Sourcekit lsp (Swift)--
-    lspconfig["sourcekit"].setup({
+    lspconfig["sourcekit"]({
       capabilities = {
         workspace = {
           didChangeWatchedFiles = {
@@ -52,4 +59,5 @@ return {
     --Keymappings--
     vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
   end
+--]]
 }

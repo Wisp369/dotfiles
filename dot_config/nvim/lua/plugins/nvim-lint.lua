@@ -11,7 +11,7 @@ return {
       swift = { "swiftlint" },
       html = { "htmlhint" },
       css = { "stylelint" },
-      javascript = { "eslint" },
+      javascript = { "oxlint" },
       kotlin = { "ktlint" },
     }
 

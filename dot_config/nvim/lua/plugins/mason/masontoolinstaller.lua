@@ -19,7 +19,7 @@ return {
         "netcoredbg",
         "cpplint",
         "prettier",
-        "deno",
+        "typescript-language-server",
         "oxlint",
         "kotlin-language-server",
         "stylelint",

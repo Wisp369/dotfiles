@@ -11,6 +11,7 @@ keymap("n", "<Tab>l", ":tabNext<cr>", opts)
 keymap("n", "<Tab>h", ":tabprevious<cr>", opts)
 keymap("n", "x", '"_x', opts)
 keymap("n", "X", '"_X', opts)
+keymap("n", "<leader>a", ":lua vim.lsp.buf.code_action()<CR>", { noremap = true })
 
 --- Autosession ---
 vim.keymap.set("n", "<leader>sl", ":AutoSession restore<CR>", {})

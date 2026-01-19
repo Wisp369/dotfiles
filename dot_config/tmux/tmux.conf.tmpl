@@ -12,6 +12,7 @@ set -g @plugin 'spywhere/tmux-now-playing' #MacOS media controler
 {{ end -}}
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'christoomey/vim-tmux-navigator'
 #Keep this at the bottom
 set -g @plugin 'tmux-plugins/tmux-continuum'
 
@@ -32,6 +33,11 @@ bind h select-pane -L
 bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+bind -r H resize-pane -L 5
+bind -r M resize-pane -Z
 
 set -g set-clipboard on #Use system clipboard
 
@@ -79,6 +85,11 @@ set -gF status-left "#{E:@catppuccin_status_PrefixModule}"
 #Allows for automatic tpm installation
 if "test ! -d ~/.config/tmux/plugins/tpm" \
    "run 'git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm && ~/.config/tmux/plugins/tpm/bin/install_plugins'"
+
+# Popup session list
+bind w display-popup -E -w 30% -h 50% ~/.config/tmux/customModules/SessionMenu.sh
+# Popup lazygit window
+bind g display-popup -d "#{pane_current_path}" -E -w 80% -h 80% -E lazygit
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.config/tmux/plugins/tpm/tpm'

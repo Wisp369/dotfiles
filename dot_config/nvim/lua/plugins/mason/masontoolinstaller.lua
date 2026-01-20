@@ -24,6 +24,8 @@ return {
         "kotlin-language-server",
         "stylelint",
         "htmlhint",
+        "jdtls",
+        "checkstyle",
       }),
       integrations = {
         ["mason-lspconfig"] = true,

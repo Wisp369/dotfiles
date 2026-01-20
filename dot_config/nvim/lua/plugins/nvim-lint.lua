@@ -13,6 +13,7 @@ return {
       css = { "stylelint" },
       javascript = { "oxlint" },
       kotlin = { "ktlint" },
+      java = { "checkstyle" },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

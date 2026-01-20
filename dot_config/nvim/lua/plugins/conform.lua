@@ -15,6 +15,7 @@ return {
         html = { "prettier" },
         css = { "prettier" },
         javascript = { "prettier" },
+        java = { "clang-format" },
       },
       format_after_save = {
         lsp_fallback = true,

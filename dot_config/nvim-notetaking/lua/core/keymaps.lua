@@ -1,7 +1,7 @@
 ---Mappings---
 vim.g.mapleader = " " --maps space to be the "leader" key. Should be done BEFORE you load lazy
 local map = vim.api.nvim_set_keymap
-map("n", "<Tab>l", ":tabNext<cr>", { noremap = true })
+map("n", "<Tab>l", ":tabnext<cr>", { noremap = true })
 map("n", "<Tab>h", ":tabprevious<cr>", { noremap = true })
 map("n", "x", '"_x', { noremap = true })
 map("n", "X", '"_X', { noremap = true })

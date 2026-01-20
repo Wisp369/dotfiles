@@ -7,7 +7,7 @@ local opts = {
   silent = true,
 }
 
-keymap("n", "<Tab>l", ":tabNext<cr>", opts)
+keymap("n", "<Tab>l", ":tabnext<cr>", opts)
 keymap("n", "<Tab>h", ":tabprevious<cr>", opts)
 keymap("n", "x", '"_x', opts)
 keymap("n", "X", '"_X', opts)

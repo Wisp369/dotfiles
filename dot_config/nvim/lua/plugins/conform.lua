@@ -16,7 +16,6 @@ return {
         css = { "prettier" },
         javascript = { "prettier" },
         java = { "clang-format" },
-        dart = { "dcm" },
       },
       format_after_save = {
         lsp_fallback = true,

@@ -10,7 +10,6 @@ return {
       cpp = { "cpplint" },
       swift = { "swiftlint" },
       html = { "htmlhint" },
-      css = { "stylelint" },
       javascript = { "oxlint" },
       kotlin = { "ktlint" },
     }
